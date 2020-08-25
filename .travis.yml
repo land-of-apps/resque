@@ -1,19 +1,11 @@
-language: ruby
-sudo: false
-cache: bundler
+# Turn on validation, so we can use import:
+version: ~> 1.0
 
-before_install:
-  - gem install bundler
+import:
+- land-of-apps/land-of-apps:travis/ruby-imports.yml
 
-script: bundle exec rake
+script:
+- APPMAP=true bundle exec rake
 
-rvm:
-  - 2.3.8
-  - 2.4.5
-  - 2.5.3
-  - ruby-head
-
-matrix:
-  allow_failures:
-    - rvm: ruby-head
-  fast_finish: true
+after_script:
+- env DEBUG=true ruby ./upload-appmaps tmp/appmap/minitest
