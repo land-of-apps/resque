@@ -1,3 +1,5 @@
+require 'appmap/minitest'
+
 require 'coveralls'
 Coveralls.wear!
 
