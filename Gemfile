@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 gemspec
 
+gem "appmap"
+
 gem "json"
 
 gem "minitest", "~> 5.11"
